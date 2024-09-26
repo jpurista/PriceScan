@@ -17,7 +17,7 @@ struct ScanListView: View {
         ForEach(locationScans) { location in
           Section(header: Text(location.name), content: {
             ForEach(location.scans.sorted(by: { $0 < $1 })) { scan in
-              Text(scan.item)
+              ScanView(scan: scan)
             }
           })
         }
