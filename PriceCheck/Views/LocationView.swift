@@ -8,11 +8,12 @@
 import SwiftUI
 
 struct LocationView: View {
+  let location: Location
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+      Section(header: Text(location.name).textCase(.uppercase), content: {
+        ForEach(location.scans.sorted(by: { $0 < $1 })) { scan in
+          ScanView(scan: scan)
+        }
+      })
     }
-}
-
-#Preview {
-    LocationView()
 }
